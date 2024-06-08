@@ -1,0 +1,90 @@
+// Place all the styles related to the groups controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+main {
+  margin: 10px;
+}
+.group-show-title {
+  display: flex;
+  background-color: silver;
+  align-items: flex-end;
+}
+.group-show-title-movie {
+  font-size: 50px;
+}
+.group-join-yes, .group-join-no {
+  color: white;
+  width: 90px;
+  height: 45px;
+  border-radius: 15px;
+  margin: auto 0;
+  font-size: 20px;
+  padding: 10px 0;
+}
+.group-join-yes {
+  background-color: forestgreen;
+}
+.group-join-no {
+  background-color: crimson;
+}
+.group-show-title-people {
+  margin: 10px 0 10px 20px;
+  font-size: 20px;
+}
+.group-show-content {
+  display: flex;
+  margin: 10px;
+}
+.group-show-info {
+  width: 45%;
+  margin-right: 5px;
+}
+.group-show-info-memo {
+  background-color: silver;
+}
+.group-show-users {
+  width: 45%;
+}
+.group-join-path {
+  background-color: coral;
+  color: white;
+  border-radius: 15px;
+  font-size: 30px;
+  width: 90px;
+  display: inline-block;
+  text-align: center;
+}
+.group-chat-path {
+  background-color: aliceblue;
+  color: white;
+  border-radius: 15px;
+  font-size: 30px;
+  width: 250px;
+  display: inline-block;
+  text-align: center;
+}
+.group-destroy-path {
+  background-color: black;
+  color: white;
+  border-radius: 15px;
+  font-size: 30px;
+  width: 90px;
+  display: inline-block;
+  text-align: center;
+}
+.group-edit-path {
+  background-color: snow;
+  color: white;
+  border-radius: 15px;
+  font-size: 30px;
+  width: 90px;
+  display: inline-block;
+  text-align: center;
+}
+.chat-content {
+  font-size: 20px;
+  background-color: silver;
+}
+.chat-movie {
+  text-align: center;
+}

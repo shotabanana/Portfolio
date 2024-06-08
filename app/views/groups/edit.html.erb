@@ -1,0 +1,16 @@
+<main>
+  <p id="notice"><%= flash[:notice]%></p>
+  <div class=container"">
+    <div class="row">
+      <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+        <h2>映画情報</h2>
+        <div class="edit-form">
+          <h6>Sex</h6>
+          <%= f.select :sex, [["男", "男"], ["女", "女"], ["指定なし", "指定なし"]], include_blank: "選択して下さい" %>
+          <div><%= f.submit "ユーザー更新"%></div>
+          <% end%>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

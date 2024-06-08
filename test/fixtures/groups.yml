@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  place_id: 1
+  people: 1
+  age: 1
+  theatre: MyString
+  sex: MyString
+  movie: MyString
+  memo: MyText
+
+two:
+  place_id: 1
+  people: 1
+  age: 1
+  theatre: MyString
+  sex: MyString
+  movie: MyString
+  memo: MyText

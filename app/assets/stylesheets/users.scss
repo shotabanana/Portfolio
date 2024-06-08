@@ -1,0 +1,32 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+main {
+  margin-top: 10px;
+  margin-left: 10px;
+}
+.user-show-header {
+  display: flex;
+}
+.user-show-info {
+  font-size: 20px;
+  margin: auto 50px;
+  width: 600px;
+}
+.user-show-info-basic {
+  margin-bottom: 30px;
+}
+
+.user-show-edit {
+  border: groove 1px blue;
+}
+
+.user-show-group {
+  display: flex;
+  margin: 30px auto;
+}
+
+.user-show-group-index {
+  margin-right: 150px;
+  margin-left: 50px;
+}

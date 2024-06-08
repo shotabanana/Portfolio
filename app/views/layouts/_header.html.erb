@@ -1,0 +1,14 @@
+<header>
+  <div class="header-box">
+    <% if user_signed_in? %>
+    <span class="header-title"><i class="fas fa-home"></i><%= link_to "映画友", top_path%></span>
+    <span class="header-in"><i class="fas fa-sign-in-alt"></i><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></span>
+    <span class="header-in"><i class="fas fa-sign-in-alt"></i><%= link_to "マイページ", user_path(current_user.id)%></span>
+    <span class="header-in"><i class="fas fa-sign-in-alt"></i><%= link_to "グループ一覧", groups_path%></span>
+    <% else %>
+    <span class="header-title"><i class="fas fa-home"></i><%= link_to "映画友", top_path%></span>
+    <span class="header-in"><i class="fas fa-user-plus"></i><%= link_to "サインアップ", new_user_registration_path%></span>
+    <span class="header-in"><i class="fas fa-sign-in-alt"></i><%= link_to "ログイン", new_user_session_path%></span>
+    <% end %>
+  </div>
+</header>

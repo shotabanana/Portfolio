@@ -1,0 +1,59 @@
+<main>
+  <div class="group-show-title">
+    <div class="group-show-title-movie">
+      <%=@group.movie%>
+    </div>
+    <%if @group.users.exists?(id: current_user.id)%>
+      <div class="group-join-yes">参加済み</div>
+    <%else%>
+      <div class="group-join-no">未参加</div>
+    <%end%>
+    <div class="group-show-title-people"><%=@group.users.count%>/<%=@group.people%></div>
+  </div>
+    <div id="notice"><%= flash[:notice] %></div>
+  <div class="group-show-content">
+      <div class="group-show-info">
+        <h2><%=@group.movie%></h2>
+        <h4>場所：<%=@place.place%>　映画館：<%=@group.theatre%></h4>
+        <h4>時間：<%=@group.time%></h4>
+        <h4>メモ</h4>
+        <h5 class="group-show-info-memo"><%=@group.memo%></h5>
+        <div class="group-join-path">
+          <%= link_to "参加", join_group_path(@group.id)%>
+        </div>
+        <div class="group-chat-path">
+          <%= link_to "チャットルーム", chat_group_path(@group.id)%>
+        </div>
+        <%if @group.mainuser_id == current_user.id%>
+        <div class="group-destroy-path">
+          <%= link_to "削除", group_path(@group.id), method: :delete, "data-confirm" => "本当に消しますか?"%>
+        </div>
+        <%end%>
+      </div>
+      <div class="group-show-users">
+        <table class='table table-hover table-inverse'>
+          <thead>
+            <tr>
+              <th></th>
+              <th>名前</th>
+              <th>年齢</th>
+              <th>自己紹介</th>
+              <th colspan="4"></th>
+            </tr>
+          </thead>
+          <% @group.users.each do |user| %>
+          <tbody>
+            <td><%= attachment_image_tag user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "default-image.jpg"%></td>
+            <% if user.id == @group.mainuser_id%>
+            <td>発起人:<%=link_to user.name, user_path(user.id)%></td>
+            <% else%>
+            <td><%=link_to user.name, user_path(user.id)%></td>
+            <%end%>
+            <td><%=user.age%></td>
+            <td><%=user.introduction%></td>
+          <%end%>
+          </tbody>
+        </table>
+      </div>
+  </div>
+</main>

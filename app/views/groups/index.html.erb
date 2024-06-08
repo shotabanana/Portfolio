@@ -1,0 +1,54 @@
+<main>
+  <div id="notice"><%= flash[:notice] %></div>
+  <div>
+    <%= link_to "古い順", groups_path(old: "true"), class: "btn btn-outline-info"%>
+    <%= link_to "新しい順", groups_path(latest: "true"), class: "btn btn-outline-info"%>
+  </div>
+  <div>
+    <%= search_form_for @q, url: groups_path do |f| %>
+      <%= f.search_field :movie_cont, class: 'form-control', placeholder: '検索ワード' %>
+      <%= f.submit '検索', class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+  <div>
+    <h4>地区</h4>
+    <%= search_form_for @q, url: groups_path do |f| %>
+      <%= f.select :place_id_eq, [["中央区", "1"], ["千代田区", "2"], ["港区", "3"], ["新宿区", "4"], ["文京区", "5"], ["台東区", "6"], ["墨田区", "7"], ["江東区", "8"], ["品川区", "9"], ["目黒区", "10"], ["大田区", "11"], ["世田谷区", "12"], ["渋谷区", "13"], ["中野区", "14"], ["杉並区", "15"], ["豊島区", "16"], ["北区", "17"], ["荒川区", "18"], ["板橋区", "19"], ["練馬区", "20"], ["足立区", "21"], ["葛飾区", "22"], ["江戸川区", "23"]], {include_blank: '選択して下さい'}, class: 'sample' %>
+      <%= f.submit '検索', class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+  <div>
+  <h2>グループ一覧</h2>
+        <table class='table table-hover table-inverse'>
+          <thead>
+            <tr>
+              <th>映画</th>
+              <th>場所</th>
+              <th>映画館</th>
+              <th>開始時間</th>
+              <th>メモ</th>
+              <th>発起人</th>
+              <th>人数</th>
+              <th></th>
+              <th colspan="8"></th>
+            </tr>
+          </thead>
+          <% @groups.each do |group| %>
+          <tbody>
+            <td><%=link_to group.movie, group_path(group.id)%></td>
+            <td><%=group.place.place%></td>
+            <td><%=group.theatre%></td>
+            <td><%=group.time%></td>
+            <td><%=group.memo%></td>
+            <td><%=link_to group.mainuser_name, user_path(group.mainuser_id)%></td>
+            <td><%=group.users.count%>/<%=group.people%></td>
+            <%if group.users.exists?(id: current_user.id)%>
+              <td class="join-yes">参加済み</td>
+            <%else%>
+              <td class="join-no">未参加</td>
+            <%end%>
+          <%end%>
+          </tbody>
+        </table>
+  </div>
+</main>
